@@ -22,4 +22,9 @@ To create a random password generator with the following characteristics:
 
 My random password generator was developed using Javascript, as found in the script.js file.  The finished html is based on the following (provided) files:
  * index.html
- * style.css
+ * style-new.css
+
+
+## Published site:
+
+Link to published password generator: https://mulys001.github.io/password-generator/.
