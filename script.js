@@ -3,6 +3,7 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
+    userPrompts();
     var password = generatePassword();
     var passwordText = document.querySelector("#password");
     passwordText.value = password;
@@ -24,45 +25,44 @@ var specCharArr = specChar.split("");
 
 // Variable Declaration 
 var passwordLength = "";
-var confirmCharUpp;
-var confirmCharLower;
-var confirmNumber;
-var confirmSpecChar;
+var userCharUpp;
+var userCharLower;
+var userNumber;
+var userSpecChar;
 
 // setting function to call the input prompts - password length & character types
-
-// Input prompts to confirm number of characters in password - setting between 8 - 128
-var passwordLength = prompt("Please select how many characters you would like in your password \n Password should be between 8 and 128 Characters");
-
-// validate password inputs
-if (passwordLength < 8 || passwordLength > 128) {
-    alert("You have not selected the right parameters, please select between 8 and 128 characters.");
+function userPrompts() {
+    // Input prompts to confirm number of characters in password - setting between 8 - 128
     var passwordLength = prompt("Please select how many characters you would like in your password \n Password should be between 8 and 128 Characters");
-}
-if (isNaN(passwordLength)) {
-    alert("You have not selected the right parameters, please select between 8 and 128 characters.");
-    var passwordLength = prompt("Please select how many characters you would like in your password \n Password should be between 8 and 128 Characters");
-}
-else (alert("Your password will contain " + passwordLength + " characters."));
 
-// Input prompts for password character types
-var userLowerChar = confirm("Do you want your password to include lowercase characters?");
-var userUpperChar = confirm("Do you want your password to include uppercase characters?");
-var userNumber = confirm("Do you want your password to include numeric characters?");
-var userSpecChar = confirm("Do you want your password to include special characters?");
+    // validate password inputs
+    if (passwordLength < 8 || passwordLength > 128) {
+        alert("You have not selected the right parameters, please select between 8 and 128 characters.");
+        var passwordLength = prompt("Please select how many characters you would like in your password \n Password should be between 8 and 128 Characters");
+    }
+    if (isNaN(passwordLength)) {
+        alert("You have not selected the right parameters, please select between 8 and 128 characters.");
+        var passwordLength = prompt("Please select how many characters you would like in your password \n Password should be between 8 and 128 Characters");
+    }
+    else (alert("Your password will contain " + passwordLength + " characters."));
 
-// Now validate those inputs
-if (userLowerChar === false && userUpperChar === false && userNumber === false && userSpecChar === false) {
-    alert("Please select at least one character type for your password");
+    // Input prompts for password character types
     var userLowerChar = confirm("Do you want your password to include lowercase characters?");
     var userUpperChar = confirm("Do you want your password to include uppercase characters?");
     var userNumber = confirm("Do you want your password to include numeric characters?");
     var userSpecChar = confirm("Do you want your password to include special characters?");
-}
+
+    // Now validate those inputs
+    if (userLowerChar === false && userUpperChar === false && userNumber === false && userSpecChar === false) {
+        alert("Please select at least one character type for your password");
+        var userLowerChar = confirm("Do you want your password to include lowercase characters?");
+        var userUpperChar = confirm("Do you want your password to include uppercase characters?");
+        var userNumber = confirm("Do you want your password to include numeric characters?");
+        var userSpecChar = confirm("Do you want your password to include special characters?");
+    }
 }
 
 // setting function to generate password
-
 function generatePassword() {
 
     // Function to get random item from the array
